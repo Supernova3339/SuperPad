@@ -42,10 +42,11 @@ namespace SuperPad
             progressBar.Value = e.ProgressPercentage;
         }
 
-        private void FileDownloadCompleted(object sender, AsyncCompletedEventArgs e)
+        private async void FileDownloadCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            this.Close();
             Process.Start("superpadsetup.exe");
+            await Task.Delay(5000);
+            this.Close();
         }
 
     }

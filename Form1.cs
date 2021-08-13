@@ -161,7 +161,7 @@ namespace SuperPad
         private void timer1_Tick(object sender, EventArgs e)
         {
             WebClient updatecheck = new WebClient();
-            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.1"))
+            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.2"))
             {
                 // outdated
                 timer1.Stop();

@@ -12,7 +12,7 @@ Make a pull request with what it will improve/remove and how it will overall ben
 | Source Code | [Download](https://github.com/Supernova3339/superpad/releases) |
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#Important)
-# 🛠 Distribution Instructions
+# 🛠 Contribution Instructions
 
 1. Download the projects source code stable in releases/straight from repository
 

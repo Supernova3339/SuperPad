@@ -10,5 +10,4 @@ Make a pull request with what it will improve/remove and how it will overall ben
 | Application    | [Download](https://dl.supers0ft.us/superpad/superpadsetup.exe)    |
 | Update File     | [Download](https://dl.supers0ft.us/superpad)     |
 | Source Code | [Download](https://github.com/Supernova3339/superpad/releases) |
-|------------|:----------------------------------------------------------------------------------------------------------------------------:|
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#Important)

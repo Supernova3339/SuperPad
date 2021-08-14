@@ -181,7 +181,7 @@ namespace SuperPad
             if (SuperPad.Properties.Settings.Default.Update == "true")
             {
                 WebClient updatecheck = new WebClient();
-                if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.5"))
+                if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.6"))
                 {
                     //outdated
                     notifyIcon1.ShowBalloonTip(1000, "Automatic Updater", "Updates found\n\nClick this notification to install the update", ToolTipIcon.Info);
@@ -214,7 +214,7 @@ namespace SuperPad
         private void timer1_Tick(object sender, EventArgs e)
         {
             WebClient updatecheck = new WebClient();
-            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.5"))
+            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.6"))
             {
                 // outdated
                 timer1.Stop();

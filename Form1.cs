@@ -172,6 +172,8 @@ namespace SuperPad
 
         private void Form1_Load(object sender, EventArgs e) // load settings
         {
+            richTextBox1.AllowDrop = true;
+            richTextBox1.DragDrop += RichTextBox1_DragDrop;
             tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabControl1.DrawItem += tabControl1_DrawItem;
             Bitmap CloseImage = SuperPad.Properties.Resources.closeR;
@@ -179,7 +181,7 @@ namespace SuperPad
             if (SuperPad.Properties.Settings.Default.Update == "true")
             {
                 WebClient updatecheck = new WebClient();
-                if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.4"))
+                if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.5"))
                 {
                     //outdated
                     notifyIcon1.ShowBalloonTip(1000, "Automatic Updater", "Updates found\n\nClick this notification to install the update", ToolTipIcon.Info);
@@ -193,6 +195,17 @@ namespace SuperPad
             }
         }
 
+        private void RichTextBox1_DragDrop(object sender, DragEventArgs e)
+        {
+            var data = e.Data.GetData(DataFormats.FileDrop);
+            if (data != null)
+            {
+                var fileNames = data as string[];
+                if (fileNames.Length > 0)
+                    richTextBox1.LoadFile(fileNames[0]);
+            }
+        }
+
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             timer1.Start();
@@ -201,7 +214,7 @@ namespace SuperPad
         private void timer1_Tick(object sender, EventArgs e)
         {
             WebClient updatecheck = new WebClient();
-            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.4"))
+            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.5"))
             {
                 // outdated
                 timer1.Stop();

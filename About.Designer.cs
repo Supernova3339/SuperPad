@@ -33,11 +33,11 @@ namespace SuperPad
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkUpdates = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkUpdates = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +72,22 @@ namespace SuperPad
             this.panel1.Size = new System.Drawing.Size(367, 164);
             this.panel1.TabIndex = 3;
             // 
+            // checkUpdates
+            // 
+            this.checkUpdates.AutoSize = true;
+            this.checkUpdates.BackColor = System.Drawing.Color.Transparent;
+            this.checkUpdates.Checked = true;
+            this.checkUpdates.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkUpdates.Location = new System.Drawing.Point(241, 3);
+            this.checkUpdates.Name = "checkUpdates";
+            this.checkUpdates.Size = new System.Drawing.Size(123, 17);
+            this.checkUpdates.TabIndex = 5;
+            this.checkUpdates.Text = "Check For Updates";
+            this.checkUpdates.UseVisualStyleBackColor = false;
+            this.checkUpdates.CheckedChanged += new System.EventHandler(this.checkUpdates_CheckedChanged);
+            this.checkUpdates.CheckStateChanged += new System.EventHandler(this.checkUpdates_CheckStateChanged);
+            this.checkUpdates.Click += new System.EventHandler(this.checkUpdates_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -90,7 +106,8 @@ namespace SuperPad
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBox1.Size = new System.Drawing.Size(367, 143);
             this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.richTextBox1.Text = "Microsoft Corporation For Creating .net 4.8\n\nSupernova3339 for creating SuperPad," +
+    " adding tabs, and much much more";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // button1
@@ -114,22 +131,6 @@ namespace SuperPad
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // checkUpdates
-            // 
-            this.checkUpdates.AutoSize = true;
-            this.checkUpdates.BackColor = System.Drawing.Color.Transparent;
-            this.checkUpdates.Checked = true;
-            this.checkUpdates.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkUpdates.Location = new System.Drawing.Point(241, 3);
-            this.checkUpdates.Name = "checkUpdates";
-            this.checkUpdates.Size = new System.Drawing.Size(123, 17);
-            this.checkUpdates.TabIndex = 5;
-            this.checkUpdates.Text = "Check For Updates";
-            this.checkUpdates.UseVisualStyleBackColor = false;
-            this.checkUpdates.CheckedChanged += new System.EventHandler(this.checkUpdates_CheckedChanged);
-            this.checkUpdates.CheckStateChanged += new System.EventHandler(this.checkUpdates_CheckStateChanged);
-            this.checkUpdates.Click += new System.EventHandler(this.checkUpdates_Click);
             // 
             // About
             // 

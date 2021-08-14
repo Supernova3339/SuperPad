@@ -1,9 +1,6 @@
 # SuperPad 
 Pretty cool notepad for windows computers
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#Important)
-# 👩‍💻 Contribution Instructions
-Make a pull request with what it will improve/remove and how it will overall benifit the project. Your pull request can not collide with code! Press . to explore the repository!
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#Important)
 # ▶Downloads
 | Package    |                                                         Download Link                                                        |
 |------------|:----------------------------------------------------------------------------------------------------------------------------:|
@@ -20,7 +17,7 @@ Make a pull request with what it will improve/remove and how it will overall ben
 
 3. Keep the "SuperPad.exe.config" file. Without, the updater will NOT work!
 
-4. Make a pull request under the 1.3 Branch. If the option is not available create it!
+4. Make a pull request with what it will improve/remove and how it will overall benifit the project. Your pull request can not collide with code! Press . to explore the repository!
 
 5. Check daily for suggestions/requrements to have your contribution merged. NUGET packages can not be added without approval from a project manager
 

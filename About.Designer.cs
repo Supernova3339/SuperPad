@@ -33,10 +33,11 @@ namespace SuperPad
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.checkUpdates = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,12 +64,22 @@ namespace SuperPad
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.checkUpdates);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.richTextBox1);
             this.panel1.Location = new System.Drawing.Point(12, 81);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(367, 164);
             this.panel1.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Acknowledgements";
             // 
             // richTextBox1
             // 
@@ -87,7 +98,7 @@ namespace SuperPad
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::SuperPad.Properties.Resources.github_png75;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(300, 9);
+            this.button1.Location = new System.Drawing.Point(304, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 59);
             this.button1.TabIndex = 4;
@@ -104,14 +115,21 @@ namespace SuperPad
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // checkUpdates
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Acknowledgements";
+            this.checkUpdates.AutoSize = true;
+            this.checkUpdates.BackColor = System.Drawing.Color.Transparent;
+            this.checkUpdates.Checked = true;
+            this.checkUpdates.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkUpdates.Location = new System.Drawing.Point(241, 3);
+            this.checkUpdates.Name = "checkUpdates";
+            this.checkUpdates.Size = new System.Drawing.Size(123, 17);
+            this.checkUpdates.TabIndex = 5;
+            this.checkUpdates.Text = "Check For Updates";
+            this.checkUpdates.UseVisualStyleBackColor = false;
+            this.checkUpdates.CheckedChanged += new System.EventHandler(this.checkUpdates_CheckedChanged);
+            this.checkUpdates.CheckStateChanged += new System.EventHandler(this.checkUpdates_CheckStateChanged);
+            this.checkUpdates.Click += new System.EventHandler(this.checkUpdates_Click);
             // 
             // About
             // 
@@ -150,5 +168,6 @@ namespace SuperPad
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkUpdates;
     }
 }

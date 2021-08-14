@@ -11,12 +11,14 @@ using System.Net;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using System.Security.Policy;
 
 namespace SuperPad
 {
     public partial class Download : Form
     {
         WebClient wc = new WebClient();
+
         public Download()
         {
             InitializeComponent();
@@ -37,7 +39,7 @@ namespace SuperPad
             }
         }
 
-        private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        private  void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
         }
@@ -45,7 +47,7 @@ namespace SuperPad
         private async void FileDownloadCompleted(object sender, AsyncCompletedEventArgs e)
         {
             Process.Start("superpadsetup.exe");
-            await Task.Delay(5000);
+            await Task.Delay(1000);
             this.Close();
         }
 

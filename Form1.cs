@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using System.Net;
+using SuperPad.Properties;
 
 namespace SuperPad
 {
@@ -60,7 +61,13 @@ namespace SuperPad
                 {
                     String fn = openFileDialog1.FileName;
                     String ft = File.ReadAllText(fn);
-                    richTextBox1.Text = ft;
+                    TabPage tp = new TabPage("New Document   "); //creates a new tab page
+                    RichTextBox rtb = new RichTextBox(); //creates a new richtext box object
+                    rtb.Dock = DockStyle.Fill; //docks rich text box
+                    rtb.BorderStyle = BorderStyle.None;//borderstyle none for cleaner design
+                    tp.Controls.Add(rtb); // adds rich text box to the tab page
+                    tabControl1.TabPages.Add(tp); //adds the tab pages to tab control
+                    rtb.Text = ft;
                 }
             }
         }
@@ -81,14 +88,14 @@ namespace SuperPad
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fontDialog1.ShowDialog();
-            richTextBox1.Font = fontDialog1.Font;
+            GetRichTextBox().Font = fontDialog1.Font;
             
         }
 
         private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
-            richTextBox1.ForeColor = colorDialog1.Color;
+            GetRichTextBox().ForeColor = colorDialog1.Color;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,49 +105,64 @@ namespace SuperPad
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            TabPage tp = new TabPage("New Document   "); //creates a new tab page
+            RichTextBox rtb = new RichTextBox(); //creates a new richtext box object
+            rtb.Dock = DockStyle.Fill;
+            rtb.BorderStyle = BorderStyle.None;//docks rich text box
+            tp.Controls.Add(rtb); // adds rich text box to the tab page
+            tabControl1.TabPages.Add(tp); //adds the tab pages to tab contro
+        }
+        private RichTextBox GetRichTextBox()
+        {
+            RichTextBox rtb = null; //making it initially null
+            TabPage tp = tabControl1.SelectedTab; // saves the tab selection status in a tabpage type variable
+            if (tp != null)
+            {
+                rtb = tp.Controls[0] as RichTextBox; //sets the selected rich text box index as primary
+            }
+            return rtb;
         }
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Paste();
+            GetRichTextBox().Paste();
         }
 
         private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.SelectAll();
+            GetRichTextBox().SelectAll();
         }
 
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            GetRichTextBox().Clear();
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Copy();
+            GetRichTextBox().Copy();
         }
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int a = richTextBox1.SelectionLength;
-            richTextBox1.Text = richTextBox1.Text.Remove(richTextBox1.SelectionStart, a);
+            int a = GetRichTextBox().SelectionLength;
+            GetRichTextBox().Text = GetRichTextBox().Text.Remove(GetRichTextBox().SelectionStart, a);
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int a = richTextBox1.SelectionLength;
-            richTextBox1.Text = richTextBox1.Text.Remove(richTextBox1.SelectionStart, a);
+            int a = GetRichTextBox().SelectionLength;
+            GetRichTextBox().Text = GetRichTextBox().Text.Remove(GetRichTextBox().SelectionStart, a);
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Undo();
+            GetRichTextBox().Undo();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            richTextBox1.Redo();
+            GetRichTextBox().Redo();
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
@@ -148,9 +170,27 @@ namespace SuperPad
             pageSetupDialog1.ShowDialog();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e) // load settings
         {
+            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl1.DrawItem += tabControl1_DrawItem;
+            Bitmap CloseImage = SuperPad.Properties.Resources.closeR;
+            tabControl1.Padding = new Point(10, 3);
+            if (SuperPad.Properties.Settings.Default.Update == "true")
+            {
+                WebClient updatecheck = new WebClient();
+                if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.4"))
+                {
+                    //outdated
+                    notifyIcon1.ShowBalloonTip(1000, "Automatic Updater", "Updates found\n\nClick this notification to install the update", ToolTipIcon.Info);
+                }
+                else
+                {
+                    // up to date
+                    timer1.Stop();
 
+                }
+            }
         }
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -161,7 +201,7 @@ namespace SuperPad
         private void timer1_Tick(object sender, EventArgs e)
         {
             WebClient updatecheck = new WebClient();
-            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.2"))
+            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("1.4"))
             {
                 // outdated
                 timer1.Stop();
@@ -191,6 +231,44 @@ namespace SuperPad
             About aboutform = new About();
             aboutform.Show();
             aboutform.Activate();
+        }
+
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            //This code will render a "x" mark at the end of the Tab caption. 
+            e.Graphics.DrawString("x", e.Font, Brushes.Black, e.Bounds.Right - 12, e.Bounds.Top + 6);
+            e.Graphics.DrawString(this.tabControl1.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 9, e.Bounds.Top + 6);
+            e.DrawFocusRectangle();
+        }
+
+        private void tabControl1_MouseDown(object sender, MouseEventArgs e)
+        {
+            //Looping through the controls.
+            for (int i = 0; i < this.tabControl1.TabPages.Count; i++)
+            {
+                Rectangle r = tabControl1.GetTabRect(i);
+                //Getting the position of the "x" mark.
+                Rectangle closeButton = new Rectangle(r.Right - 12, r.Top + 4, 9, 7);
+                if (closeButton.Contains(e.Location))
+                {
+                    if (tabControl1.SelectedIndex >= 1)
+                    {
+                        this.tabControl1.TabPages.RemoveAt(i);
+                        break;
+                    }
+                    else
+                    {
+                        // do nothing
+                    }
+                }
+            }
+        }
+
+        private void notifyIcon1_BalloonTipClicked(object sender, EventArgs e)
+        {
+            Download updateinit = new Download();
+            updateinit.Show();
+            updateinit.Activate();
         }
     }
 }

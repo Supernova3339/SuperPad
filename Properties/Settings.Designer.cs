@@ -70,5 +70,29 @@ namespace SuperPad.Properties {
                 this["shareSSL"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string shareServer {
+            get {
+                return ((string)(this["shareServer"]));
+            }
+            set {
+                this["shareServer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string sharePort {
+            get {
+                return ((string)(this["sharePort"]));
+            }
+            set {
+                this["sharePort"] = value;
+            }
+        }
     }
 }

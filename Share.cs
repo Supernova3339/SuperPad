@@ -103,6 +103,8 @@ namespace SuperPad
                 smtp.Send(mail);
                 Properties.Settings.Default["shareEmail"] = fromTextbox.Text; // save email 
                 Properties.Settings.Default["sharePassword"] = passwordTextbox.Text; // save emails password
+                Properties.Settings.Default["shareServer"] = serverTextbox.Text; // save smtp server
+                Properties.Settings.Default["sharePort"] = portTextbox.Text; // save smtp port
                 DialogResult dialogResult = MessageBox.Show("Note sent!\n\nWould you like to send another one?", "Email Sent", MessageBoxButtons.YesNo, MessageBoxIcon.None); // do confirmation instead of letting user spam button
                 if (dialogResult == DialogResult.Yes) // if user wants to send another email do this then close messagebox
                 {

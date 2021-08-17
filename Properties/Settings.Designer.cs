@@ -34,5 +34,41 @@ namespace SuperPad.Properties {
                 this["Update"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string shareEmail {
+            get {
+                return ((string)(this["shareEmail"]));
+            }
+            set {
+                this["shareEmail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string sharePassword {
+            get {
+                return ((string)(this["sharePassword"]));
+            }
+            set {
+                this["sharePassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string shareSSL {
+            get {
+                return ((string)(this["shareSSL"]));
+            }
+            set {
+                this["shareSSL"] = value;
+            }
+        }
     }
 }

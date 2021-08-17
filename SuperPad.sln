@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperPad", "SuperPad.csproj", "{5D13BC1D-A2CA-430F-A7A5-13E944CED4DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperPadUpdater", "..\SuperPadUpdater\SuperPadUpdater.csproj", "{D52EDAE0-C7DA-4237-98D9-63CA85E6C817}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5D13BC1D-A2CA-430F-A7A5-13E944CED4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D13BC1D-A2CA-430F-A7A5-13E944CED4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D13BC1D-A2CA-430F-A7A5-13E944CED4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D52EDAE0-C7DA-4237-98D9-63CA85E6C817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52EDAE0-C7DA-4237-98D9-63CA85E6C817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52EDAE0-C7DA-4237-98D9-63CA85E6C817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52EDAE0-C7DA-4237-98D9-63CA85E6C817}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

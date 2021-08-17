@@ -121,16 +121,22 @@
   <data name="github_PNG19" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\github_PNG19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="notepad-9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notepad-9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CloseImage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="attach_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\attach_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="github_png75" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\github_png75.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CloseImage" xml:space="preserve">
-    <value />
+  <data name="notepad-9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notepad-9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="closeR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="attach_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\attach_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

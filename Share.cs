@@ -90,8 +90,8 @@ namespace SuperPad
                 SmtpClient smtp = new SmtpClient(server);
                 mail.From = new MailAddress(fromTextbox.Text);
                 mail.To.Add(toTextbox.Text);
-                mail.Subject = titleLbl.Text;
-                mail.Body = bodyLbl.Text;
+                mail.Subject = titleTextbox.Text;
+                mail.Body = bodyTextbox.Text;
 
                 System.Net.Mail.Attachment attachment;
                 attachment = new System.Net.Mail.Attachment(lblLocation.Text);
@@ -140,11 +140,8 @@ namespace SuperPad
         private void Share_Load(object sender, EventArgs e)
         {
             // load email user and pass from previous successful email
-            if (fromTextbox.Text == String.Empty) // load only if nothing is in email textbox "From"
-            {
                 fromTextbox.Text = Properties.Settings.Default.shareEmail;
                 passwordTextbox.Text = Properties.Settings.Default.sharePassword;
-            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

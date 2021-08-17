@@ -106,7 +106,7 @@ namespace SuperPad
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBox1.Size = new System.Drawing.Size(367, 143);
             this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "Microsoft Corporation For Creating .net 4.8\n\nSupernova3339 for creating SuperPad," +
+            this.richTextBox1.Text = "Microsoft Corporation For Creating .net 4.5\n\nSupernova3339 for creating SuperPad," +
     " adding tabs, and much much more";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 

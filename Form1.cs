@@ -11,6 +11,7 @@ using System.IO;
 using System.Reflection;
 using System.Net;
 using SuperPad.Properties;
+using System.Threading;
 
 namespace SuperPad
 {
@@ -61,7 +62,8 @@ namespace SuperPad
                 {
                     String fn = openFileDialog1.FileName;
                     String ft = File.ReadAllText(fn);
-                    TabPage tp = new TabPage("New Document   "); //creates a new tab page
+                    fn = System.IO.Path.GetFileName(fn);
+                    TabPage tp = new TabPage( fn + "      "); //creates a new tab page
                     RichTextBox rtb = new RichTextBox(); //creates a new richtext box object
                     rtb.Dock = DockStyle.Fill; //docks rich text box
                     rtb.BorderStyle = BorderStyle.None;//borderstyle none for cleaner design
@@ -193,6 +195,16 @@ namespace SuperPad
 
                 }
             }
+            if (SuperPad.Properties.Settings.Default.onTop == "true")
+            {
+                this.TopMost = true;
+                toolStripMenuItem6.Checked = true;
+            }
+            if (SuperPad.Properties.Settings.Default.onTop == "false")
+            {
+                this.TopMost = false;
+                toolStripMenuItem6.Checked = false;
+            }
         }
 
         private void RichTextBox1_DragDrop(object sender, DragEventArgs e)
@@ -308,6 +320,59 @@ namespace SuperPad
             Share sharefile = new Share();
             sharefile.Show();
             sharefile.Activate();
+        }
+
+        private static string ReadAllText(string pFilename, Encoding encoding)
+        {
+            using (var FileStream = new FileStream(pFilename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                if (encoding == null)
+                {
+                    using (var StreamReader = new StreamReader(FileStream))
+                    {
+                        var text = StreamReader.ReadToEnd();
+                        return text;
+                    }
+                }
+                else
+                {
+                    using (var StreamReader = new StreamReader(FileStream, encoding, false))
+                    {
+                        var text = StreamReader.ReadToEnd();
+                        return text;
+                    }
+                }
+            }
+        }
+
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            tabControl1.Refresh();
+            Thread.Sleep(100);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer2.Stop();
+        }
+
+        private void toolStripMenuItem6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem6.Checked == true)
+            {
+                SuperPad.Properties.Settings.Default.onTop = "true";
+                this.TopMost = true;
+                Settings.Default.Save();
+                toolStripMenuItem6.Checked = true;
+            }
+            else
+            {
+                SuperPad.Properties.Settings.Default.onTop = "false";
+                this.TopMost = false;
+                Settings.Default.Save();
+                toolStripMenuItem6.Checked = false;
+            }
         }
     }
 }

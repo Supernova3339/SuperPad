@@ -42,7 +42,7 @@ namespace SuperPad
             {
                 checkUpdates.Checked = true;
             }
-            else
+            if (SuperPad.Properties.Settings.Default.Update == "false")
             {
                 checkUpdates.Checked = false;
             }

@@ -94,5 +94,17 @@ namespace SuperPad.Properties {
                 this["sharePort"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string onTop {
+            get {
+                return ((string)(this["onTop"]));
+            }
+            set {
+                this["onTop"] = value;
+            }
+        }
     }
 }

@@ -1,5 +1,7 @@
 # SuperPad 
 Pretty cool notepad for windows computers
+[![Discord](https://discord.com/api/guilds/826874392637734922/widget.png)]https://discord.gg/sTbHee2yKQ)
+
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#Important)
 # ▶Downloads
 | Package    |                                                         Download Link                                                        |

@@ -1,3 +1,4 @@
+[![Follow me](https://img.shields.io/github/followers/supernova3339?label=follow%20me&style=social)](https://github.com/supernova3339)
 [![Discord](https://discordapp.com/api/guilds/826874392637734922/widget.png)](https://discord.gg/sTbHee2yKQ)
 
 # SuperPad 

@@ -8,6 +8,7 @@
 Pretty cool notepad for windows computers
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#Important)
 # ▶Downloads
+[![Download counter](https://img.shields.io/github/downloads/supernova3339/superpad/total)](https://github.com/supernova3339/superpad/releases)
 | Package    |                                                         Download Link                                                        |
 |------------|:----------------------------------------------------------------------------------------------------------------------------:|
 | Application    | [Download](https://dl.supers0ft.us/superpad/superpadsetup.exe)    |

@@ -1,6 +1,6 @@
 [![Follow me](https://img.shields.io/github/followers/supernova3339?label=follow%20me&style=social)](https://github.com/supernova3339)
 [![Discord](https://discordapp.com/api/guilds/826874392637734922/widget.png)](https://discord.gg/sTbHee2yKQ)
-[!Fork](https://img.shields.io/github/forks/supernova3339/superpad?style=social)]
+[!Fork](https://img.shields.io/github/forks/supernova3339/superpad?style=social)](#Socials)
 
 # SuperPad 
 Pretty cool notepad for windows computers

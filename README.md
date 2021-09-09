@@ -17,6 +17,7 @@ Pretty cool notepad for windows computers
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#Important)
 # 🛠 Contribution Instructions
+[![License type](https://img.shields.io/github/license/supernova3339/superpad)](https://www.gnu.org/licenses/gpl-3.0.en.html?scrlybrkr=392c56c6)
 
 1. Download the projects source code stable in releases/straight from repository
 

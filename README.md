@@ -1,5 +1,6 @@
 [![Discord](https://discordapp.com/api/guilds/826874392637734922/widget.png)](https://discord.gg/sTbHee2yKQ)
 [![Lines of code](https://img.shields.io/tokei/lines/github/supernova3339/superpad?style=plastic)]()
+[![Repo size](https://img.shields.io/github/repo-size/supernova3339/superpad)]()
 [![Follow me](https://img.shields.io/github/followers/supernova3339?label=follow%20me&style=social)](https://github.com/supernova3339)
 [![Fork repo](https://img.shields.io/github/forks/supernova3339/superpad?style=social)](https://github.com/supernova3339/superpad/fork)
 

@@ -133,7 +133,7 @@ namespace SuperPad.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("E5D0B396DE3EE2E2B1B1994B7164DF05")]
+        [global::System.Configuration.DefaultSettingValueAttribute("EE902F5C549319CB70008222C957BBB2")]
         public string md5 {
             get {
                 return ((string)(this["md5"]));

@@ -30,7 +30,7 @@
       <Value Profile="(Default)">false</Value>
     </Setting>
     <Setting Name="md5" Type="System.String" Scope="User">
-      <Value Profile="(Default)">E5D0B396DE3EE2E2B1B1994B7164DF05</Value>
+      <Value Profile="(Default)">EE902F5C549319CB70008222C957BBB2</Value>
     </Setting>
   </Settings>
 </SettingsFile>

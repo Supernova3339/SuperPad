@@ -53,9 +53,9 @@ namespace SuperPad
         {
 
             string md5checkhash = SuperPad.Properties.Settings.Default.md5;
-            md5Lbl.Text = "C64C1D0D2CC15C9A1E0B730295027FB8";
+            md5Lbl.Text = SuperPad.Properties.Settings.Default.md5;
             cancelBtn.Visible = false;
-            lblStatus.Text = "Status: Verifying package integrity";
+            lblStatus.Text = "Status: Verifying package signature";
             // Verify package integrity | check md5
             string fileName = spsLbl.Text;
 

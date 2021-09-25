@@ -151,7 +151,7 @@ namespace SuperPad
                 // ssl checked
                 SuperPad.Properties.Settings.Default.shareSSL = "true";
                 string activatessl = SuperPad.Properties.Settings.Default.shareSSL;
-                Settings.Default.Save();
+                Properties.Settings.Default.Save();
 
             }
             else

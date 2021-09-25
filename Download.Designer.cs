@@ -29,36 +29,72 @@ namespace SuperPad
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDownloading = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Download));
+            this.lblStatus = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.md5Lbl = new System.Windows.Forms.Label();
+            this.spsLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblDownloading
+            // lblStatus
             // 
-            this.lblDownloading.AutoSize = true;
-            this.lblDownloading.Font = new System.Drawing.Font("Segoe UI", 24F);
-            this.lblDownloading.Location = new System.Drawing.Point(35, 35);
-            this.lblDownloading.Name = "lblDownloading";
-            this.lblDownloading.Size = new System.Drawing.Size(322, 45);
-            this.lblDownloading.TabIndex = 0;
-            this.lblDownloading.Text = "Downloading Update";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblStatus.Location = new System.Drawing.Point(14, 10);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(255, 21);
+            this.lblStatus.TabIndex = 0;
+            this.lblStatus.Text = "Status: Connecting to update server";
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(34, 111);
+            this.progressBar.Location = new System.Drawing.Point(18, 34);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(344, 23);
+            this.progressBar.Size = new System.Drawing.Size(417, 23);
             this.progressBar.TabIndex = 1;
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(360, 63);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelBtn.TabIndex = 3;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // md5Lbl
+            // 
+            this.md5Lbl.AutoSize = true;
+            this.md5Lbl.Location = new System.Drawing.Point(3, 73);
+            this.md5Lbl.Name = "md5Lbl";
+            this.md5Lbl.Size = new System.Drawing.Size(38, 13);
+            this.md5Lbl.TabIndex = 4;
+            this.md5Lbl.Text = "label1";
+            // 
+            // spsLbl
+            // 
+            this.spsLbl.AutoSize = true;
+            this.spsLbl.Location = new System.Drawing.Point(47, 73);
+            this.spsLbl.Name = "spsLbl";
+            this.spsLbl.Size = new System.Drawing.Size(105, 13);
+            this.spsLbl.TabIndex = 5;
+            this.spsLbl.Text = "superpadsetup.exe";
             // 
             // Download
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 152);
+            this.ClientSize = new System.Drawing.Size(447, 89);
+            this.Controls.Add(this.spsLbl);
+            this.Controls.Add(this.md5Lbl);
+            this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.lblDownloading);
+            this.Controls.Add(this.lblStatus);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Download";
@@ -73,6 +109,9 @@ namespace SuperPad
         #endregion
 
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Label lblDownloading;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Label md5Lbl;
+        private System.Windows.Forms.Label spsLbl;
     }
 }

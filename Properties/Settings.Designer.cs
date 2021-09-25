@@ -106,5 +106,41 @@ namespace SuperPad.Properties {
                 this["onTop"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("false")]
+        public string darkMode {
+            get {
+                return ((string)(this["darkMode"]));
+            }
+            set {
+                this["darkMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("false")]
+        public string rac {
+            get {
+                return ((string)(this["rac"]));
+            }
+            set {
+                this["rac"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("E5D0B396DE3EE2E2B1B1994B7164DF05")]
+        public string md5 {
+            get {
+                return ((string)(this["md5"]));
+            }
+            set {
+                this["md5"] = value;
+            }
+        }
     }
 }

@@ -183,7 +183,7 @@ namespace SuperPad
             if (SuperPad.Properties.Settings.Default.Update == "true")
             {
                 WebClient updatecheck = new WebClient();
-                if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("2.0"))
+                if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("2.3"))
                 {
                     //outdated
                     notifyIcon1.ShowBalloonTip(1000, "Automatic Updater", "Updates found\n\nClick this notification to install the update", ToolTipIcon.Info);
@@ -226,7 +226,7 @@ namespace SuperPad
         private void timer1_Tick(object sender, EventArgs e)
         {
             WebClient updatecheck = new WebClient();
-            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("2.0"))
+            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("2.3"))
             {
                 // outdated
                 timer1.Stop();
@@ -363,16 +363,22 @@ namespace SuperPad
             {
                 SuperPad.Properties.Settings.Default.onTop = "true";
                 this.TopMost = true;
-                Settings.Default.Save();
+                Properties.Settings.Default.Save();
                 toolStripMenuItem6.Checked = true;
             }
             else
             {
                 SuperPad.Properties.Settings.Default.onTop = "false";
                 this.TopMost = false;
-                Settings.Default.Save();
+                Properties.Settings.Default.Save();
                 toolStripMenuItem6.Checked = false;
             }
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
         }
     }
 }

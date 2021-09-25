@@ -38,6 +38,7 @@ namespace SuperPad
 
         private void About_Load(object sender, EventArgs e)
         {
+            checkUpdates.Visible = false;
             if (SuperPad.Properties.Settings.Default.Update == "true")
             {
                 checkUpdates.Checked = true;
@@ -68,7 +69,7 @@ namespace SuperPad
             if (checkUpdates.Checked == true)
             {
                 SuperPad.Properties.Settings.Default.Update = "true";
-                Settings.Default.Save();
+                Properties.Settings.Default.Save();
 
             }
             else

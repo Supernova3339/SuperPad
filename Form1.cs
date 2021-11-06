@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Net;
 using SuperPad.Properties;
 using System.Threading;
+using System.Drawing.Printing;
 
 namespace SuperPad
 {
@@ -20,7 +21,7 @@ namespace SuperPad
         public Form1()
         {
             InitializeComponent();
-           
+
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,7 +32,7 @@ namespace SuperPad
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             this.ShowIcon = false;
-            e.Graphics.DrawString(richTextBox1.Text, new Font("Arial" ,12 ,FontStyle.Regular) , Brushes.Black , new Point(10,100)   );
+            e.Graphics.DrawString(richTextBox1.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(10, 100));
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,14 +57,14 @@ namespace SuperPad
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Stream streamy;
-            if (openFileDialog1.ShowDialog() ==  System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 if ((streamy = openFileDialog1.OpenFile()) != null)
                 {
                     String fn = openFileDialog1.FileName;
                     String ft = File.ReadAllText(fn);
                     fn = System.IO.Path.GetFileName(fn);
-                    TabPage tp = new TabPage( fn + "      "); //creates a new tab page
+                    TabPage tp = new TabPage(fn + "      "); //creates a new tab page
                     RichTextBox rtb = new RichTextBox(); //creates a new richtext box object
                     rtb.Dock = DockStyle.Fill; //docks rich text box
                     rtb.BorderStyle = BorderStyle.None;//borderstyle none for cleaner design
@@ -76,13 +77,14 @@ namespace SuperPad
 
         private void saveToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 using (Stream str = File.Open(saveFileDialog1.FileName, FileMode.CreateNew))
                 using (StreamWriter strwr = new StreamWriter(str))
                 {
                     String fn1 = saveFileDialog1.FileName;
-                    strwr.Write(fn1);
+                    String ft = File.ReadAllText(fn1);
+                    strwr.Write(ft);
                 }
             }
         }
@@ -91,7 +93,7 @@ namespace SuperPad
         {
             fontDialog1.ShowDialog();
             GetRichTextBox().Font = fontDialog1.Font;
-            
+
         }
 
         private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -180,10 +182,20 @@ namespace SuperPad
             tabControl1.DrawItem += tabControl1_DrawItem;
             Bitmap CloseImage = SuperPad.Properties.Resources.closeR;
             tabControl1.Padding = new Point(10, 3);
+            if (SuperPad.Properties.Settings.Default.allowsharing == "true")
+            {
+                toolStripMenuItem5.Enabled = true;
+                toolStripMenuItem5.Visible = true;
+            }
+            else
+            {
+                toolStripMenuItem5.Enabled = false;
+                toolStripMenuItem5.Visible = false;
+            }
             if (SuperPad.Properties.Settings.Default.Update == "true")
             {
                 WebClient updatecheck = new WebClient();
-                if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("2.3"))
+                if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains(Properties.Settings.Default.version))
                 {
                     //outdated
                     notifyIcon1.ShowBalloonTip(1000, "Automatic Updater", "Updates found\n\nClick this notification to install the update", ToolTipIcon.Info);
@@ -226,7 +238,7 @@ namespace SuperPad
         private void timer1_Tick(object sender, EventArgs e)
         {
             WebClient updatecheck = new WebClient();
-            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains("2.3"))
+            if (!updatecheck.DownloadString("http://dl.supers0ft.us/superpad").Contains(Properties.Settings.Default.version))
             {
                 // outdated
                 timer1.Stop();
@@ -247,7 +259,7 @@ namespace SuperPad
                 // up to date
                 timer1.Stop();
                 MessageBox.Show("No Updates Found", "Update Checker", MessageBoxButtons.OK);
-              
+
             }
         }
 
@@ -379,6 +391,37 @@ namespace SuperPad
         {
             Settings settings = new Settings();
             settings.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (Stream str = File.Open(saveFileDialog1.FileName, FileMode.CreateNew))
+                using (StreamWriter strwr = new StreamWriter(str))
+                {
+                    String fn2 = saveFileDialog1.FileName;
+                    String ft = File.ReadAllText(fn2);
+                    strwr.Write(ft);
+                }
+            }
+        }
+
+        public void Open(string pFilename, Encoding encoding = null)
+        {
+            var Filename = pFilename;
+
+            if (!File.Exists(Filename))
+            {
+                var FileExists = false;
+
+                var Extension = Path.GetExtension(Filename);
+                if (Extension == "")
+                {
+                    Filename = Filename + ".txt";
+                    FileExists = File.Exists(Filename);
+                }
+            }
         }
     }
 }

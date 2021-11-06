@@ -90,6 +90,7 @@ namespace SuperPad
                     }
                     else
                     {
+                        File.Delete("superpadsetup.exe");
                         lblStatus.Text = "Status: Invalid MD5 Signature, Try Again Later";
                         cancelBtn.Text = "Close";
                         cancelBtn.Visible = true;

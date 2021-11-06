@@ -32,5 +32,11 @@
     <Setting Name="md5" Type="System.String" Scope="User">
       <Value Profile="(Default)">EE902F5C549319CB70008222C957BBB2</Value>
     </Setting>
+    <Setting Name="allowsharing" Type="System.String" Scope="User">
+      <Value Profile="(Default)">false</Value>
+    </Setting>
+    <Setting Name="version" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2.4</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -29,7 +29,7 @@ Pretty cool notepad for windows computers
 
 4. Make a pull request with what it will improve/remove and how it will overall benifit the project. Your pull request can not collide with code! Press . to explore the repository!
 
-5. Check daily for suggestions/requrements to have your contribution merged. NUGET packages can not be added without approval from a project manager
+5. Check daily for suggestions/requirements to have your contribution merged. NUGET packages can not be added without approval from a project manager
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#Important)
 # ✉ Contact

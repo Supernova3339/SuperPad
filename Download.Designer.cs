@@ -35,6 +35,7 @@ namespace SuperPad
             this.cancelBtn = new System.Windows.Forms.Button();
             this.md5Lbl = new System.Windows.Forms.Label();
             this.spsLbl = new System.Windows.Forms.Label();
+            this.yesBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblStatus
@@ -82,11 +83,23 @@ namespace SuperPad
             this.spsLbl.TabIndex = 5;
             this.spsLbl.Text = "superpadsetup.exe";
             // 
+            // yesBtn
+            // 
+            this.yesBtn.Location = new System.Drawing.Point(279, 63);
+            this.yesBtn.Name = "yesBtn";
+            this.yesBtn.Size = new System.Drawing.Size(75, 23);
+            this.yesBtn.TabIndex = 6;
+            this.yesBtn.Text = "Yes";
+            this.yesBtn.UseVisualStyleBackColor = true;
+            this.yesBtn.Visible = false;
+            this.yesBtn.Click += new System.EventHandler(this.yesBtn_Click);
+            // 
             // Download
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 89);
+            this.Controls.Add(this.yesBtn);
             this.Controls.Add(this.spsLbl);
             this.Controls.Add(this.md5Lbl);
             this.Controls.Add(this.cancelBtn);
@@ -113,5 +126,6 @@ namespace SuperPad
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Label md5Lbl;
         private System.Windows.Forms.Label spsLbl;
+        private System.Windows.Forms.Button yesBtn;
     }
 }

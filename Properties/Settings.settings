@@ -30,13 +30,13 @@
       <Value Profile="(Default)">false</Value>
     </Setting>
     <Setting Name="md5" Type="System.String" Scope="User">
-      <Value Profile="(Default)">EE902F5C549319CB70008222C957BBB2</Value>
+      <Value Profile="(Default)">E3FD8C27A2DF60179B6C23FF38929E38</Value>
     </Setting>
     <Setting Name="allowsharing" Type="System.String" Scope="User">
       <Value Profile="(Default)">false</Value>
     </Setting>
     <Setting Name="version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2.4</Value>
+      <Value Profile="(Default)">2.5</Value>
     </Setting>
   </Settings>
 </SettingsFile>

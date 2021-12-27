@@ -133,7 +133,7 @@ namespace SuperPad.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("EE902F5C549319CB70008222C957BBB2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("E3FD8C27A2DF60179B6C23FF38929E38")]
         public string md5 {
             get {
                 return ((string)(this["md5"]));
@@ -157,7 +157,7 @@ namespace SuperPad.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2.4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2.5")]
         public string version {
             get {
                 return ((string)(this["version"]));

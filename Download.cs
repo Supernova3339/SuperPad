@@ -9,12 +9,13 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
+using System.Reflection;
 
 namespace SuperPad
 {
     public partial class Download : Form
     {
-        
+
         [DllImport("user32")]
         private static extern bool SetForegroundWindow(IntPtr hwnd);
         [DllImport("user32")]
@@ -26,7 +27,7 @@ namespace SuperPad
             InitializeComponent();
         }
 
-       private void Download_Load(object sender, EventArgs e)
+        private void Download_Load(object sender, EventArgs e)
         {
             spsLbl.Visible = false;
             md5Lbl.Visible = false;
@@ -44,7 +45,7 @@ namespace SuperPad
             }
         }
 
-        private  void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
         }
@@ -75,7 +76,7 @@ namespace SuperPad
                         lblStatus.Text = "Status: Launching update package";
                         int count = Process.GetProcessesByName("superpadsetup").Count();
                         if (count < 1)
-                            Process.Start("superpadsetup.exe");
+                            Process.Start("superpadsetup.exe /SILENT");
                         else
                         {
                             var proc = Process.GetProcessesByName("superpadsetup").FirstOrDefault();
@@ -90,10 +91,11 @@ namespace SuperPad
                     }
                     else
                     {
-                        File.Delete("superpadsetup.exe");
-                        lblStatus.Text = "Status: Invalid MD5 Signature, Try Again Later";
-                        cancelBtn.Text = "Close";
+                        lblStatus.Text = "Invalid MD5 Signature, Continue?";
+                        cancelBtn.Text = "No";
                         cancelBtn.Visible = true;
+                        yesBtn.Visible = true;
+
                     }
                 }
             }
@@ -101,6 +103,7 @@ namespace SuperPad
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
+            File.Delete("superpadsetup.exe");
             this.Dispose();
         }
 
@@ -132,7 +135,34 @@ namespace SuperPad
             return sb.ToString();
         }
 
-
+        private async void yesBtn_Click(object sender, EventArgs e)
+        {
+            cancelBtn.Visible = false;
+            yesBtn.Visible = false;
+            lblStatus.Text = "Status: Checking for multiple instances";
+            await Task.Delay(1000);
+            lblStatus.Text = "Status: Launching update package";
+            int count = Process.GetProcessesByName("superpadsetup").Count();
+            string path11 = Application.StartupPath;
+            using (Process pProcess = new Process())
+            {
+                pProcess.StartInfo.FileName = $@"{path11}\\superpadsetup.exe";
+                pProcess.StartInfo.Arguments = "/SILENT /SP"; //argument
+                if (count < 1)
+                    Process.Start("superpadsetup.exe");
+                else
+                {
+                    var proc = Process.GetProcessesByName("superpadsetup").FirstOrDefault();
+                    if (proc != null && proc.MainWindowHandle != IntPtr.Zero)
+                    {
+                        SetForegroundWindow(proc.MainWindowHandle);
+                        ShowWindowAsync(proc.MainWindowHandle, 3);
+                    }
+                }
+                await Task.Delay(200);
+                Application.Exit();
+            }
+        }
     }
 }
 
